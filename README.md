@@ -1,7 +1,17 @@
-# Notas
+# README
 
 
+## Install
 
-https://www.instagram.com/p/DP2otqEDC-6/
-https://www.instagram.com/p/DPgJE4oEdG9/
-https://www.instagram.com/p/DPOpAuHE2k4/
+```shell
+python -m venv .venv
+source .venv/bin/activate
+pip install -r requirements.txt
+```
+
+## Run Code
+
+```shell
+rm -Rf images/ texts/
+python main.py
+```
