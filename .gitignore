@@ -319,3 +319,10 @@ pyrightconfig.json
 .ionide
 
 # End of https://www.toptal.com/developers/gitignore/api/python,pythonvanilla,visualstudiocode,pycharm+all,jupyternotebooks
+
+
+# Custom Project: ANDERSONBRAZ
+
+contents/*
+guide/*
+images/*

@@ -62,7 +62,7 @@ def get_image_files(input_dir: str) -> List[str]:
     
     return image_files
 
-def save_extracted_texts(image_texts: List[tuple[str, str]], output_dir: str, min_length: int = 25) -> None:
+def save_contentss(image_texts: List[tuple[str, str]], output_dir: str, min_length: int = 25) -> None:
     """
     Salva textos extraídos: um TXT por imagem (só se len(text) > min_length) + um consolidado.
     
@@ -74,7 +74,7 @@ def save_extracted_texts(image_texts: List[tuple[str, str]], output_dir: str, mi
     os.makedirs(output_dir, exist_ok=True)
     
     # Arquivo consolidado (inclui todos, com marcação para curtos)
-    consolidated_path = os.path.join(output_dir, 'all_extracted_texts.txt')
+    consolidated_path = os.path.join(output_dir, 'all_contentss.txt')
     with open(consolidated_path, 'w', encoding='utf-8') as f:
         f.write("=== TEXTOS EXTRAÍDOS DE IMAGENS ===\n")
         f.write(f"(Filtros: Arquivos individuais só para textos > {min_length} chars)\n\n")
@@ -104,7 +104,7 @@ def save_extracted_texts(image_texts: List[tuple[str, str]], output_dir: str, mi
     if relevant_count == 0:
         logger.info("Nenhum arquivo individual salvo (todos os textos curtos ou vazios).")
 
-def extract_all_texts(input_dir: str = "images", output_dir: str = "extracted_text", min_length: int = 25) -> None:
+def extract_all_texts(input_dir: str = "images", output_dir: str = "contents", min_length: int = 25) -> None:
     """
     Função principal: Extrai texto de todas as imagens no input_dir.
     
@@ -129,7 +129,7 @@ def extract_all_texts(input_dir: str = "images", output_dir: str = "extracted_te
         image_texts.append((img_path, text))
     
     # Salva resultados
-    save_extracted_texts(image_texts, output_dir, min_length)
+    save_contentss(image_texts, output_dir, min_length)
     
     # Estatísticas
     total_with_text = sum(1 for _, text in image_texts if text)

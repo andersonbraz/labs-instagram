@@ -1,5 +1,6 @@
 from solutions import client_instagram as instagram
 from solutions import extract_text as capture
+from solutions import organizer_prompt as op
 
 if __name__ == "__main__":
 
@@ -13,4 +14,5 @@ if __name__ == "__main__":
     for url in urls:
         instagram.download_carousel_images(url)
 
-    capture.extract_all_texts(output_dir='texts', min_length=150)
+    capture.extract_all_texts(min_length=200)
+    op.organize_prompts(min_length=200)
